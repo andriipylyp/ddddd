@@ -1,0 +1,165 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.0032754330247061728 0.9991580203266545 0.0408964785210349 3.1527215186803166
+  position -0.02369260133816918 0.08942758403069606 -0.4020735361781571
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+Robot {
+  translation 0.04 0.024 0
+  children [
+    Solid {
+      children [
+        Shape {
+          geometry Cylinder {
+            height 0.01
+            radius 0.01
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject Cylinder {
+        height 0.01
+        radius 0.01
+      }
+      physics Physics {
+      }
+    }
+    Solid {
+      children [
+        Shape {
+          geometry Box {
+            size 0.01 0.009 0.1
+          }
+        }
+      ]
+      name "solid(5)"
+    }
+    Solid {
+      translation 0 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.666667 1
+          }
+          geometry Box {
+            size 0.08 0.005 0.05
+          }
+        }
+      ]
+      name "solid(4)"
+    }
+    Solid {
+      translation -0.09 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0
+          }
+          geometry Box {
+            size 0.04 0.02 0.09
+          }
+        }
+      ]
+      name "solid(3)"
+    }
+    DistanceSensor {
+      translation 0.1 0.02 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.02 0.03 0.05
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0.06 0 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxVelocity 10000
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.062
+        rotation 1 0 0 1.5899996938995749
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject Cylinder {
+          height 0.02
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0.06 0 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxVelocity 10000
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.062
+        rotation 1 0 0 1.5899996938995749
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.02
+          radius 0.02
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF base Shape {
+      appearance PBRAppearance {
+        baseColor 0.266667 0.266667 0.266667
+      }
+      geometry Box {
+        size 0.23 0.01 0.105
+      }
+    }
+  ]
+  physics Physics {
+  }
+  controller "my_controller"
+}
